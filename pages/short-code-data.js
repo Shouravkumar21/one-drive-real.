@@ -1,0 +1,60 @@
+import Head from 'next/head';
+import Layout from '../components/Layout';
+
+export default function ShortCodeData() {
+    return (
+        <>
+            <Head>
+                <title>Short Code Data - OnDrive Realty</title>
+                <meta name="description" content="Innovative marketing with Short Code Data." />
+            </Head>
+
+            <Layout>
+                <div className="bg-gray-50 min-h-screen py-12">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-12">
+                            <h1 className="text-4xl font-bold text-primary-600 mb-4">SHORT CODE DATA</h1>
+                            <p className="text-xl text-gray-600">
+                                Innovative approach to marketing via SMS.
+                            </p>
+                        </div>
+
+                        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+                            <p className="text-gray-700 leading-relaxed mb-6">
+                                Short Code Data provides an innovative approach to marketing, allowing property owners to connect with potential buyers via SMS. This direct line of communication enables quick inquiries and helps keep interested buyers engaged.
+                            </p>
+
+                            <h2 className="text-2xl font-bold text-gray-900 mb-4">Key Features of Short Code Data:</h2>
+                            <ul className="space-y-4 mb-6">
+                                <li className="flex items-start">
+                                    <span className="flex-shrink-0 h-6 w-6 text-primary-600 mr-2">❖</span>
+                                    <div>
+                                        <span className="font-bold text-gray-900">Instant Communication:</span>
+                                        <p className="text-gray-700">Property owners can engage with prospective buyers through text messaging, receiving inquiries and setting up appointments more efficiently.</p>
+                                    </div>
+                                </li>
+                                <li className="flex items-start">
+                                    <span className="flex-shrink-0 h-6 w-6 text-primary-600 mr-2">❖</span>
+                                    <div>
+                                        <span className="font-bold text-gray-900">Efficient Lead Follow-Up:</span>
+                                        <p className="text-gray-700">With Short Code Data, leads generated through APS-LEADS-DFLX can be followed up on quickly, ensuring no opportunities are missed.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="bg-primary-600 rounded-lg shadow-lg p-8 text-center text-white">
+                            <h2 className="text-3xl font-bold mb-4">Connect Instantly</h2>
+                            <p className="text-lg mb-6">
+                                Ready to engage buyers instantly? Contact us at info@onedriverealty.com to learn more about Short Code Data.
+                            </p>
+                            <a href="mailto:info@onedriverealty.com" className="inline-block bg-white text-primary-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300">
+                                Email us at info@onedriverealty.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </Layout>
+        </>
+    );
+}

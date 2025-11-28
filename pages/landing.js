@@ -11,15 +11,15 @@ export default function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const floatingButtons = [
-    { id: 'why-ondrive', label: 'Why OneDrive Realty', color: '#8B5CF6', position: { top: '25%', left: '10%' }, tail: 'right', href: '/why-one-drive' },
-    { id: 'halal-funding', label: 'Halal Funding', color: '#7C3AED', position: { top: '37%', left: '8%' }, tail: 'right', href: '/halal-funding' },
+    { id: 'why-ondrive', label: 'Why OneDrive Realty', color: '#6A0DAD', position: { top: '25%', left: '10%' }, tail: 'right', href: '/why-one-drive' },
+    { id: 'halal-funding', label: 'Halal Funding', color: '#6A0DAD', position: { top: '37%', left: '8%' }, tail: 'right', href: '/halal-funding' },
     { id: 'build-2-suit', label: 'Build 2 Suit', color: '#D4AF37', position: { top: '52%', left: '12%' }, tail: 'right', href: '/build-2-suit' },
-    { id: 'list-property', label: 'List Your Property', color: '#DC2626', position: { bottom: '30%', left: '18%' }, tail: 'right', href: '/list-property' },
-    { id: 'agent-commission', label: 'Agent 100% Commission', color: '#1F2937', position: { bottom: '10%', left: '41%' }, tail: 'top', href: '/agent-commission' },
-    { id: 'cap-ror-reo', label: 'CAP-ROR-REO', color: '#DC2626', position: { top: '25%', right: '10%' }, tail: 'left', href: '/cap-ror-reo' },
-    { id: 're-blogs', label: 'R/E BLOGS', color: '#7F1D1D', position: { top: '37%', right: '8%' }, tail: 'left', href: '/blog' },
-    { id: '1031-exchange', label: '1031 Exchange', color: '#EC4899', position: { top: '52%', right: '12%' }, tail: 'left', href: '/1031-exchange' },
-    { id: 'api-leads', label: 'API-LEADS-DFLX', color: '#DB2777', position: { bottom: '30%', right: '15%' }, tail: 'left', href: '/api-leads-dflx' },
+    { id: 'list-property', label: 'List Your Property', color: '#C1440E', position: { bottom: '30%', left: '18%' }, tail: 'right', href: '/list-property' },
+    { id: 'agent-commission', label: 'Agent 100% Commission', color: '#0F1C3F', position: { bottom: '10%', left: '41%' }, tail: 'top', href: '/agent-commission' },
+    { id: 'cap-ror-reo', label: 'CAP-ROR-REO', color: '#C1440E', position: { top: '25%', right: '10%' }, tail: 'left', href: '/cap-ror-reo' },
+    { id: 're-blogs', label: 'R/E BLOGS', color: '#8A3324', position: { top: '37%', right: '8%' }, tail: 'left', href: '/blog' },
+    { id: '1031-exchange', label: '1031 Exchange', color: '#C1440E', position: { top: '52%', right: '12%' }, tail: 'left', href: '/1031-exchange' },
+    { id: 'api-leads', label: 'API-LEADS-DFLX', color: '#C1440E', position: { bottom: '30%', right: '15%' }, tail: 'left', href: '/api-leads-dflx' },
   ];
 
   const products = [
@@ -183,38 +183,46 @@ export default function Landing() {
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundImage: "url('/assets/backgrounds/backgrorund.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-gradient-to-b from-blue-300/20 to-blue-500/30"></div>
-        {floatingButtons.map((btn) => (
-          <Link key={btn.id} href={btn.href}>
-            <button
-              className="absolute px-6 py-3 text-white font-bold shadow-xl hover:scale-110 transition-all duration-300 text-sm whitespace-nowrap flex items-center justify-center"
-              style={{
-                backgroundColor: btn.color,
-                ...btn.position,
-                zIndex: 10,
-                borderRadius: '50px',
-                minWidth: '160px'
-              }}
-            >
-              {btn.label}
-              {/* Speech Bubble Tail - refined */}
-              <div
-                className={`absolute w-0 h-0 border-8 border-transparent ${btn.tail === 'right' ? 'border-l-[12px] -right-3 top-1/2 -translate-y-1/2' :
-                  btn.tail === 'left' ? 'border-r-[12px] -left-3 top-1/2 -translate-y-1/2' :
-                    btn.tail === 'top' ? 'border-b-[12px] -top-3 left-1/2 -translate-x-1/2' : ''
-                  }`}
+        {floatingButtons.map((btn, index) => (
+          <div
+            key={btn.id}
+            className="absolute animate-float"
+            style={{
+              ...btn.position,
+              zIndex: 10,
+              animationDelay: `${index * 0.5}s`
+            }}
+          >
+            <Link href={btn.href}>
+              <button
+                className="relative px-6 py-3 text-white font-bold shadow-xl hover:scale-110 transition-all duration-300 text-sm whitespace-nowrap flex items-center justify-center"
                 style={{
-                  borderLeftColor: btn.tail === 'right' ? btn.color : 'transparent',
-                  borderRightColor: btn.tail === 'left' ? btn.color : 'transparent',
-                  borderBottomColor: btn.tail === 'top' ? btn.color : 'transparent',
-                  filter: 'drop-shadow(0px 2px 2px rgba(0,0,0,0.1))'
+                  backgroundColor: btn.color,
+                  borderRadius: '50px',
+                  minWidth: '160px'
                 }}
-              ></div>
-            </button>
-          </Link>
+              >
+                {btn.label}
+                {/* Speech Bubble Tail - refined */}
+                <div
+                  className={`absolute w-0 h-0 border-8 border-transparent ${btn.tail === 'right' ? 'border-l-[12px] -right-3 top-1/2 -translate-y-1/2' :
+                    btn.tail === 'left' ? 'border-r-[12px] -left-3 top-1/2 -translate-y-1/2' :
+                      btn.tail === 'top' ? 'border-b-[12px] -top-3 left-1/2 -translate-x-1/2' : ''
+                    }`}
+                  style={{
+                    borderLeftColor: btn.tail === 'right' ? btn.color : 'transparent',
+                    borderRightColor: btn.tail === 'left' ? btn.color : 'transparent',
+                    borderBottomColor: btn.tail === 'top' ? btn.color : 'transparent',
+                    filter: 'drop-shadow(0px 2px 2px rgba(0,0,0,0.1))'
+                  }}
+                ></div>
+              </button>
+            </Link>
+          </div>
         ))}
         <div className="relative z-20">
           {/* Central Logo Image with Country Flags */}
-          <div className="flex items-center justify-center relative">
+          <div className="flex items-center justify-center relative animate-fadeInUp">
             {/* Washington State Flag - Left */}
             <div className="absolute left-6 top-[32%] -translate-y-1/2 w-12 h-auto z-20">
               <img src="/assets/flags/washington_flag.png" alt="Washington Flag" className="w-full h-full object-cover rounded-sm mix-blend-multiply" />
@@ -237,12 +245,12 @@ export default function Landing() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-[5%] left-[45%] md:left-[48%] -translate-x-1/2 w-8 h-8 bg-[#FF0000] rounded-full border-4 border-[#00FF00] shadow-[0_0_10px_rgba(0,0,0,0.5)] z-10 animate-pulse"></div>
+        <div className="absolute bottom-[5%] left-[45%] md:left-[48%] -translate-x-1/2 w-8 h-8 bg-[#FF0000] rounded-full border-4 border-[#00FF00] shadow-[0_0_10px_rgba(0,0,0,0.5)] z-10 animate-pulse-slow"></div>
         <div className="absolute bottom-20 left-20 text-6xl opacity-60"></div>
       </section>
 
       <section className="py-8 relative min-h-screen flex items-center" style={{ background: 'linear-gradient(135deg, #FFC0CB 0%, #FFB6C1 50%, #FFA0B0 100%)' }}>
-        <div className="max-w-6xl mx-auto px-4 w-full">
+        <div className="max-w-6xl mx-auto px-4 w-full animate-fadeInUp">
           {/* Our Products Title */}
           <div className="flex justify-center mb-6">
             <div className="relative bg-[#9B59B6] text-white px-12 py-2 shadow-lg" style={{ borderRadius: '80px' }}>
@@ -332,19 +340,132 @@ export default function Landing() {
           </button>
         </div>
       </section >
-      <footer className="bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700 py-12 relative">
-        <div className="absolute top-8 right-8 text-white text-2xl bg-blue-600 px-6 py-3 rounded-lg shadow-lg">لا إله إلا ٱلله محمد رسول ٱلله</div>
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-center mb-8">
-            <div className="text-center">
-              <div className="text-white text-sm mb-2">OneDriveRealty.com</div>
-              <div className="mx-auto flex items-center justify-center">
-                <img src="/assets/logos/logomain.png" alt="OneDrive Realty" className="w-64 md:w-80 h-auto object-contain drop-shadow-lg" />
-              </div>
+      <footer className="relative min-h-[800px] overflow-hidden" style={{ background: 'linear-gradient(180deg, #00BFFF 0%, #1E90FF 100%)' }}>
+        {/* Arabic Text - Top Right */}
+        <div className="absolute top-12 right-8 z-30">
+          <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/30">
+            <span className="text-white text-2xl font-bold shadow-black drop-shadow-md">لا إله إلا ٱلله محمد رسول ٱلله</span>
+          </div>
+        </div>
+
+        {/* Central Logo */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 z-30">
+          <div className="relative flex items-center justify-center">
+            {/* Washington State Flag - Left */}
+            <div className="absolute left-2 md:left-4 top-[32%] -translate-y-1/2 w-8 md:w-10 h-auto z-20">
+              <img src="/assets/flags/washington_flag.png" alt="Washington Flag" className="w-full h-full object-cover rounded-sm mix-blend-multiply" />
+            </div>
+
+            <img src="/assets/logos/logomain.png" alt="OneDrive Realty" className="w-64 md:w-80 h-auto relative z-10 drop-shadow-2xl" />
+
+            {/* USA Flag - Right */}
+            <div className="absolute right-2 md:right-4 top-[32%] -translate-y-1/2 w-8 md:w-10 h-auto z-20">
+              <img src="/assets/flags/united-states-of-america.png" alt="USA Flag" className="w-full h-full object-cover rounded-sm shadow-sm" />
+            </div>
+
+            {/* Golf Flag - Bottom Center */}
+            <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-16 md:w-20 h-12 md:h-16 z-20 bg-[#2D5BA6] rounded-full flex items-center justify-center p-1.5">
+              <img src="/assets/flags/golf flag icon.png" alt="Golf Flag" className="w-full h-full object-contain" />
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-8">{footerLinks.map((link, index) => (<button key={index} className="px-4 py-3 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition text-sm" style={{ backgroundColor: link.color }}>{link.label}</button>))}</div>
-          <div className="text-center"><div className="inline-block bg-red-600 text-white px-8 py-4 rounded-full shadow-lg relative"><p className="font-bold">2024 Copyrights OneDriveRealty</p><p className="text-sm">All Rights Reserved</p><div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[15px] border-r-[15px] border-b-[15px] border-l-transparent border-r-transparent border-b-red-600"></div></div></div>
+        </div>
+
+        {/* Floating Footer Bubbles */}
+        <div className="absolute inset-0 w-full h-full">
+          {/* Partners - Far Left */}
+          <div className="absolute top-[45%] left-[5%] z-40">
+            <Link href="/partners">
+              <div className="transform hover:scale-110 transition duration-300 cursor-pointer">
+                <div className="relative bg-[#6A0DAD] text-white px-8 py-4 shadow-xl min-w-[180px] text-center" style={{ borderRadius: '50px' }}>
+                  <span className="font-bold text-lg">Partners</span>
+                  <div className="absolute top-1/2 -right-4 -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-l-[20px] border-l-[#6A0DAD] border-b-[10px] border-b-transparent"></div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Board Members - Top Left */}
+          <div className="absolute top-[35%] left-[20%] z-40">
+            <Link href="/board-members">
+              <div className="transform hover:scale-110 transition duration-300 cursor-pointer">
+                <div className="relative bg-[#2E8B57] text-white px-8 py-4 shadow-xl min-w-[200px] text-center" style={{ borderRadius: '50px' }}>
+                  <span className="font-bold text-lg">Board Members</span>
+                  <div className="absolute top-1/2 -right-4 -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-l-[20px] border-l-[#2E8B57] border-b-[10px] border-b-transparent"></div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Terms & Condition - Bottom Left */}
+          <div className="absolute top-[60%] left-[22%] z-40">
+            <Link href="/terms-and-conditions">
+              <div className="transform hover:scale-110 transition duration-300 cursor-pointer">
+                <div className="relative bg-[#8A3324] text-white px-8 py-4 shadow-xl min-w-[200px] text-center" style={{ borderRadius: '50px' }}>
+                  <span className="font-bold text-lg">Terms & Condition</span>
+                  <div className="absolute top-1/2 -right-4 -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-l-[20px] border-l-[#8A3324] border-b-[10px] border-b-transparent"></div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* We Support GF - Center */}
+          <div className="absolute top-[50%] left-1/2 -translate-x-1/2 z-40">
+            <Link href="/we-support-gf">
+              <div className="transform hover:scale-110 transition duration-300 cursor-pointer">
+                <div className="relative bg-[#1E3A8A] text-white px-10 py-5 shadow-xl min-w-[220px] text-center" style={{ borderRadius: '50px' }}>
+                  <span className="font-bold text-xl">We Support GF</span>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[15px] border-b-[#1E3A8A]"></div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Connect With Us - Top Right */}
+          <div className="absolute top-[35%] right-[20%] z-40">
+            <Link href="/connect-with-us">
+              <div className="transform hover:scale-110 transition duration-300 cursor-pointer">
+                <div className="relative bg-[#6A0DAD] text-white px-8 py-4 shadow-xl min-w-[200px] text-center" style={{ borderRadius: '50px' }}>
+                  <span className="font-bold text-lg">Connect With Us</span>
+                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-r-[20px] border-r-[#6A0DAD] border-b-[10px] border-b-transparent"></div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Obtain Real Estate - Bottom Right */}
+          <div className="absolute top-[60%] right-[22%] z-40">
+            <Link href="/obtain-real-estate">
+              <div className="transform hover:scale-110 transition duration-300 cursor-pointer">
+                <div className="relative bg-[#C1440E] text-white px-8 py-4 shadow-xl min-w-[200px] text-center" style={{ borderRadius: '50px' }}>
+                  <span className="font-bold text-lg">Obtain Real Estate</span>
+                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-r-[20px] border-r-[#C1440E] border-b-[10px] border-b-transparent"></div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* License Regulators - Far Right */}
+          <div className="absolute top-[45%] right-[5%] z-40">
+            <Link href="/license-regulators">
+              <div className="transform hover:scale-110 transition duration-300 cursor-pointer">
+                <div className="relative bg-[#6A0DAD] text-white px-8 py-4 shadow-xl min-w-[180px] text-center" style={{ borderRadius: '50px' }}>
+                  <span className="font-bold text-lg">License Regulators</span>
+                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-r-[20px] border-r-[#6A0DAD] border-b-[10px] border-b-transparent"></div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Copyright - Bottom Center */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30">
+          <Link href="/copyright">
+            <div className="relative bg-[#C1440E] text-white px-12 py-6 shadow-2xl text-center min-w-[300px] cursor-pointer hover:scale-105 transition duration-300" style={{ borderRadius: '50px' }}>
+              <p className="font-bold text-lg">2024 Copyrights OneDriveRealty</p>
+              <p className="text-sm opacity-90">All Rights Reserved</p>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[20px] border-b-[#C1440E]"></div>
+            </div>
+          </Link>
         </div>
       </footer>
     </>

@@ -16,7 +16,7 @@ module.exports = {
         'guru-white': '#FFFFFF',
         'human-orange': '#E69428',
         'blush-pink-light': '#F4DED7',
-        
+
         // 15-Color Palette from Reference
         'navy-dark': '#0F1C3F',
         'royal-blue': '#1E3A8A',
@@ -33,7 +33,7 @@ module.exports = {
         'warm-beige': '#EDE6DA',
         'cool-taupe': '#DCD6C9',
         'deep-purple': '#6A0DAD',
-        
+
         // Primary brand colors
         primary: {
           DEFAULT: '#1E3A8A',
@@ -74,6 +74,25 @@ module.exports = {
           800: '#785016',
           900: '#644314',
         },
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        }
+      },
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+        fadeInUp: 'fadeInUp 1s ease-out forwards',
+        'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },
